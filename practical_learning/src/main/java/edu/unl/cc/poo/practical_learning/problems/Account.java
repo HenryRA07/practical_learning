@@ -37,7 +37,7 @@ public class Account {
     
     private void validate(float balance){
         if(this.balance-balance<0){
-            throw new IllegalArgumentException("valor no permitido");
+            throw new IllegalArgumentException("Saldo insuficiente");
         }
     }
     

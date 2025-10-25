@@ -25,19 +25,26 @@ public class Account {
     }
     
     public float deposit(float balance){
+        validateNegativa(balance);
         movimiento.add(("Deposito de: "+balance));
         return this.balance+=balance;
     }
     
     public void withdraw(float balance){
-        validate(balance);
+        validateWithdraw(balance);
         movimiento.add(("Retiro de: "+balance));
         this.balance-=balance;
     }
     
-    private void validate(float balance){
-        if(this.balance-balance<0){
+    private void validateWithdraw(float balance){
+        if (this.balance-balance<0) {
             throw new IllegalArgumentException("Saldo insuficiente");
+        }
+    }
+    
+    private void validateNegativa(float balance){
+        if(balance<0){
+            throw new IllegalArgumentException("No ingrese numeros negativos");
         }
     }
     

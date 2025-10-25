@@ -13,23 +13,25 @@ import java.util.Scanner;
  * @author henry
  */
 public class AccountExecute {
+
     public static Account buscarCuenta(ArrayList<Account> cuenta, String numero) {
-    for (Account c : cuenta) {
-        if (c.getNumberAccount().equals(numero)) {
-            return c;
+        for (Account c : cuenta) {
+            if (c.getNumberAccount().equals(numero)) {
+                return c;
+            }
         }
+        return null;
     }
-    return null;
-}
+
     public static void main(String[] args) {
-        Scanner sc =  new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         ArrayList<Account> cuenta = new ArrayList<>();
         byte num;
         do {
             System.out.println("------------------------------");
             System.out.println("Escriba 1 para crear una cuenta");
             System.out.println("Escirba 2 para acceder a una cuenta");
-            System.out.println("Escriba cualquier numero para salir del programa");
+            System.out.println("Escriba 0 para salir del programa");
             System.out.println("------------------------------");
             num = sc.nextByte();
             switch (num) {
@@ -37,32 +39,36 @@ public class AccountExecute {
                     System.out.println("Ingrese el nombre el representante de la cuenta");
                     sc.nextLine();
                     String name = sc.nextLine();
-                    System.out.println(name);
                     System.out.println("Ingrese el nombre el Numero de la cuenta");
                     String numberAccount = sc.next();
-                    System.out.println(numberAccount);
                     cuenta.add(new Account(name, numberAccount));
                     break;
                 case 2:
                     byte mun;
-                    
                     System.out.println("Ingrese el número de cuenta: ");
                     String numero = sc.next();
                     Account cuentaActual = buscarCuenta(cuenta, numero);
-                    
+                    if(cuentaActual==null){
+                        System.out.println("Cuenta no encontrada");
+                        break;
+                    }
                     do {
                         System.out.println("------------------------------");
                         System.out.println("Escriba 1 para Deposita ");
                         System.out.println("Escriba 2 para Retirar ");
                         System.out.println("Escriba 3 para Consultar Saldo ");
-                        System.out.println("Escirba 0 para Salir ");
+                        System.out.println("Escirba 0 para Salir de la cuenta ");
                         System.out.println("------------------------------");
                         mun = sc.nextByte();
                         switch (mun) {
                             case 1:
-                                System.out.println("Ingrese la cantidad que depositara: ");
-                                int depositar = sc.nextInt();
-                                cuentaActual.deposit(depositar);
+                                try {
+                                    System.out.println("Ingrese la cantidad que depositara: ");
+                                    int depositar = sc.nextInt();
+                                    cuentaActual.deposit(depositar);
+                                } catch (IllegalArgumentException iae) {
+                                    System.out.println(iae.getMessage());
+                                }
                                 break;
                             case 2:
                                 try {
@@ -86,6 +92,6 @@ public class AccountExecute {
                 default:
                     break;
             }
-        } while (num!=0);
+        } while (num != 0);
     }
 }

@@ -5,6 +5,7 @@
 package edu.unl.cc.poo.practical_learning.views;
 
 import edu.unl.cc.poo.practical_learning.problems.Account;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,11 +15,11 @@ import java.util.Scanner;
 public class AccountExecute {
     public static void main(String[] args) {
         Scanner sc =  new Scanner(System.in);
-        
+        ArrayList<Account> cuenta = new ArrayList<>();
         System.out.println("------------------------------");
         System.out.println("Escriba 1 para crear una cuenta");
         System.out.println("Escirba 2 para acceder a una cuenta");
-        System.out.println("");
+        System.out.println("Escriba cualquier numero para salir del programa");
         System.out.println("------------------------------");
         byte num = sc.nextByte();
         switch (num) {
@@ -27,10 +28,9 @@ public class AccountExecute {
                 String name = sc.nextLine();
                 sc.next();
                 System.out.println("Ingrese el nombre el Numero de la cuenta");
-                String numberAccount = sc.nextLine();
+                String numberAccount = sc.next();
                 sc.next();
-                Account cuenta = new Account(name, numberAccount);
-                System.out.println(cuenta.getNumberAccount());
+                cuenta.add(new Account(name, numberAccount));
                 break;
             case 2:
                 byte mun;
@@ -50,13 +50,18 @@ public class AccountExecute {
                             cuenta1.deposit(depositar);
                             break;
                         case 2:
-                            System.out.println("Ingrese la cantidad que depositara: ");
-                            int retirar = sc.nextInt();
-                            cuenta1.deposit(retirar);
+                            try {
+                                System.out.println("Ingrese la cantidad que desea retirar: ");
+                                int retirar = sc.nextInt();
+                                cuenta1.withdraw(retirar);
+                            } catch (IllegalArgumentException iae) {
+                                System.out.println(iae.getMessage());
+                            }
                             break;
                         case 3:
-                            System.out.println("Su saldo actual es:");
-                            System.out.println(cuenta1.getBalance());
+                            System.out.println("------------------------------");
+                            cuenta1.presentDat();
+                            System.out.println("------------------------------");
                             break;
                         default:
                             System.out.println("Escriba un numero correcto");

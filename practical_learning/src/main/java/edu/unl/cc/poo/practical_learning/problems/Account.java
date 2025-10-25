@@ -5,6 +5,9 @@
  */
 package edu.unl.cc.poo.practical_learning.problems;
 
+import java.awt.BorderLayout;
+import java.util.ArrayList;
+
 /**
  *
  * @author henry
@@ -13,6 +16,7 @@ public class Account {
     private String name;
     private float balance;
     private String numberAccount;
+    private ArrayList<String> movimiento = new ArrayList<>();
 
     public Account(String name, String numberAccount) {
         this.name = name;
@@ -21,18 +25,26 @@ public class Account {
     }
     
     public float deposit(float balance){
+        movimiento.add(("Deposito de: "+balance));
         return this.balance+=balance;
     }
     
     public void withdraw(float balance){
         validate(balance);
+        movimiento.add(("Retiro de: "+balance));
         this.balance-=balance;
     }
     
     private void validate(float balance){
         if(this.balance-balance<0){
-            throw new IllegalArgumentException("Saldo insuficiente");
+            throw new IllegalArgumentException("valor no permitido");
         }
+    }
+    
+    public void presentDat(){
+        System.out.println("Representate "+this.name+" correspondiente al numero de cuenta: "+this.numberAccount);
+        System.out.println("Saldo actual: "+this.balance);
+        movimiento.forEach(movimiento->System.out.println(movimiento));
     }
 
     public String getName() {

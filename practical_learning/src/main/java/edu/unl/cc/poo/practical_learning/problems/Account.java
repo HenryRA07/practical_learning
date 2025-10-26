@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author henry
+ * @author Franz
  */
 public class Account {
     private String name;
@@ -26,14 +26,14 @@ public class Account {
     
     public void deposit(float balance){
         validateNegativa(balance);
-        movimiento.add(("Deposito de: "+balance));
+        movimiento.add(("Deposito de: +"+balance));
         this.balance+=balance;
     }
     
     public void withdraw(float balance){
         validateNegativa(balance);
         validateWithdraw(balance);
-        movimiento.add(("Retiro de: "+balance));
+        movimiento.add(("Retiro de: -"+balance));
         this.balance-=balance;
     }
     

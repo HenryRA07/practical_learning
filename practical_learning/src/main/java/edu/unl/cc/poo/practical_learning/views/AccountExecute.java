@@ -26,34 +26,34 @@ public class AccountExecute {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Account> cuenta = new ArrayList<>();
-        byte num;
+        byte opcionmenu;
         do {
             System.out.println("------------------------------------------------------------------------");
             System.out.println("Escriba 1 para crear una cuenta");
             System.out.println("Escirba 2 para acceder a una cuenta");
             System.out.println("Escriba 0 para salir del programa");
             System.out.println("------------------------------------------------------------------------");
-            num = sc.nextByte();
-            switch (num) {
+            opcionmenu = sc.nextByte();
+            switch (opcionmenu) {
                 case 1:
                     System.out.println("Ingrese el nombre del representante de la cuenta");
                     sc.nextLine();
                     String name = sc.nextLine();
                     System.out.println("Ingrese un numero para la cuenta");
                     String numberAccount = sc.next();
-                    if(buscarCuenta(cuenta, numberAccount)==null){
+                    if (buscarCuenta(cuenta, numberAccount) == null) {
                         cuenta.add(new Account(name, numberAccount));
                         System.out.println("Cuentra registrada");
-                    } else{
+                    } else {
                         System.out.println("Cuenta existente");
                     }
                     break;
                 case 2:
-                    byte mun;
+                    byte opcioncuenta;
                     System.out.println("Ingrese el numero de cuenta: ");
                     String numero = sc.next();
                     Account cuentaActual = buscarCuenta(cuenta, numero);
-                    if(cuentaActual==null){
+                    if (cuentaActual == null) {
                         System.out.println("Cuenta no encontrada");
                         break;
                     }
@@ -64,8 +64,8 @@ public class AccountExecute {
                         System.out.println("Escriba 3 para Consultar Saldo ");
                         System.out.println("Escirba 0 para Salir de la cuenta ");
                         System.out.println("------------------------------------------------------------------------");
-                        mun = sc.nextByte();
-                        switch (mun) {
+                        opcioncuenta = sc.nextByte();
+                        switch (opcioncuenta) {
                             case 1:
                                 try {
                                     System.out.println("Ingrese la cantidad que depositara: ");
@@ -95,11 +95,10 @@ public class AccountExecute {
                             default:
                                 System.out.println("Escriba un numero correcto");
                         }
-                    } while (mun != 0);
-                    break;
-                default:
+                    } while (opcioncuenta != 0);
                     break;
             }
-        } while (num != 0);
+        } while (opcionmenu != 0);
+        sc.close();
     }
 }

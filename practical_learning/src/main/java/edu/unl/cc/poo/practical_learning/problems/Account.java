@@ -5,7 +5,7 @@
  */
 package edu.unl.cc.poo.practical_learning.problems;
 
-import java.awt.BorderLayout;
+
 import java.util.ArrayList;
 
 /**
@@ -31,6 +31,7 @@ public class Account {
     }
     
     public void withdraw(float balance){
+        validateNegativa(balance);
         validateWithdraw(balance);
         movimiento.add(("Retiro de: "+balance));
         this.balance-=balance;
@@ -52,14 +53,6 @@ public class Account {
         System.out.println("Representate "+this.name+" correspondiente al numero de cuenta: "+this.numberAccount);
         System.out.println("Saldo actual: "+this.balance);
         movimiento.forEach(movimiento->System.out.println(movimiento));
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public float getBalance() {

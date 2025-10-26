@@ -86,6 +86,7 @@ public class QuadraticExecute {
                 sc.next();
                 opcion = 0;
             }
+            sc.close();
         }
     }
 

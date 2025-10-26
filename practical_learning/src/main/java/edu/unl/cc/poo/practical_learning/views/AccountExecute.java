@@ -28,24 +28,29 @@ public class AccountExecute {
         ArrayList<Account> cuenta = new ArrayList<>();
         byte num;
         do {
-            System.out.println("------------------------------");
+            System.out.println("------------------------------------------------------------------------");
             System.out.println("Escriba 1 para crear una cuenta");
             System.out.println("Escirba 2 para acceder a una cuenta");
             System.out.println("Escriba 0 para salir del programa");
-            System.out.println("------------------------------");
+            System.out.println("------------------------------------------------------------------------");
             num = sc.nextByte();
             switch (num) {
                 case 1:
-                    System.out.println("Ingrese el nombre el representante de la cuenta");
+                    System.out.println("Ingrese el nombre del representante de la cuenta");
                     sc.nextLine();
                     String name = sc.nextLine();
-                    System.out.println("Ingrese el nombre el Numero de la cuenta");
+                    System.out.println("Ingrese un numero para la cuenta");
                     String numberAccount = sc.next();
-                    cuenta.add(new Account(name, numberAccount));
+                    if(buscarCuenta(cuenta, numberAccount)==null){
+                        cuenta.add(new Account(name, numberAccount));
+                        System.out.println("Cuentra registrada");
+                    } else{
+                        System.out.println("Cuenta existente");
+                    }
                     break;
                 case 2:
                     byte mun;
-                    System.out.println("Ingrese el número de cuenta: ");
+                    System.out.println("Ingrese el numero de cuenta: ");
                     String numero = sc.next();
                     Account cuentaActual = buscarCuenta(cuenta, numero);
                     if(cuentaActual==null){
@@ -53,12 +58,12 @@ public class AccountExecute {
                         break;
                     }
                     do {
-                        System.out.println("------------------------------");
+                        System.out.println("------------------------------------------------------------------------");
                         System.out.println("Escriba 1 para Deposita ");
                         System.out.println("Escriba 2 para Retirar ");
                         System.out.println("Escriba 3 para Consultar Saldo ");
                         System.out.println("Escirba 0 para Salir de la cuenta ");
-                        System.out.println("------------------------------");
+                        System.out.println("------------------------------------------------------------------------");
                         mun = sc.nextByte();
                         switch (mun) {
                             case 1:
@@ -80,9 +85,12 @@ public class AccountExecute {
                                 }
                                 break;
                             case 3:
-                                System.out.println("------------------------------");
+                                System.out.println("------------------------------------------------------------------------");
                                 cuentaActual.presentDat();
-                                System.out.println("------------------------------");
+                                System.out.println("------------------------------------------------------------------------");
+                                break;
+                            case 0:
+                                System.out.println("Salio de su cuenta");
                                 break;
                             default:
                                 System.out.println("Escriba un numero correcto");

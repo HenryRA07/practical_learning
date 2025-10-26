@@ -24,10 +24,10 @@ public class Account {
         this.numberAccount = numberAccount;
     }
     
-    public float deposit(float balance){
+    public void deposit(float balance){
         validateNegativa(balance);
         movimiento.add(("Deposito de: "+balance));
-        return this.balance+=balance;
+        this.balance+=balance;
     }
     
     public void withdraw(float balance){

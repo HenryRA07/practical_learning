@@ -15,7 +15,7 @@ public class Fraction_executor {
             try {
                 System.out.println("Ingrese  el numerador");
                 Integer num = sc.nextInt();
-                System.out.println("Ingrese  el denominador(¡No puede ser 0!)");
+                System.out.println("Ingrese  el denominador(No puede ser 0)");
                 Integer den = sc.nextInt();
                 sc.nextLine();
                 return new Fraction(num, den);
@@ -38,7 +38,7 @@ public class Fraction_executor {
 
         Fraction f1, f2;
        
-            System.out.println("\n---  FRACCIÓN 1 (F1) ---");
+            System.out.println("\n---  FRACCION 1 (F1) ---");
             f1 = executor.readFraction(sc);
             System.out.println("\n---  FRACCIÓN 2 (F2) ---");
             f2 = executor.readFraction(sc);
@@ -59,21 +59,21 @@ public class Fraction_executor {
 
             
             Fraction multResult = f1.multiplication(f2);
-            System.out.println("\n MULTIPLICACIÓN: " + f1.toString() + " * " + f2.toString() + " = " + multResult.toString());
+            System.out.println("\n MULTIPLICACION: " + f1.toString() + " * " + f2.toString() + " = " + multResult.toString());
             multResult.simplify();
             System.out.println("   Resultado Simplificado: " + multResult.toString());
 
          
             Fraction divResult = f1.division(f2);
-            System.out.println("\n DIVISIÓN: " + f1.toString() + " / " + f2.toString() + " = " + divResult.toString());
+            System.out.println("\n DIVISION: " + f1.toString() + " / " + f2.toString() + " = " + divResult.toString());
             divResult.simplify();
             System.out.println("   Resultado Simplificado: " + divResult.toString());
 
             System.out.println("\n-------------------------------------------------");
              
-            System.out.println("INFORMACIÓN DE F1:");
+            System.out.println("INFORMACION DE F1:");
             System.out.printf("Valor Decimal: %.4f\n", f1.Decimal());
-            System.out.println("Fracción Invertida: " + f1.Investor().toString());
+            System.out.println("Fraccion Invertida: " + f1.Investor().toString());
 
         } catch (IllegalArgumentException e) {
             System.err.println("\n ¡ERROR!: " + e.getMessage());

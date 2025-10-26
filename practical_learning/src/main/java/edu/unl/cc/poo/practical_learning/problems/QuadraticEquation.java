@@ -48,8 +48,6 @@ public class QuadraticEquation {
        return null;
     }
     
-    
-    
     public Double getA() {
         return a;
     }
@@ -78,5 +76,4 @@ public class QuadraticEquation {
     public String toString() {
         return String.format("%.0fx^2 %+.0fx %+.0f", this.a, this.b, this.c);
     }
-    
 }

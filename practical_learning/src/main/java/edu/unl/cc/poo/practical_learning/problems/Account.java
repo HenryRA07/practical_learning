@@ -55,6 +55,14 @@ public class Account {
         movimiento.forEach(movimiento->System.out.println(movimiento));
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public float getBalance() {
         return balance;
     }

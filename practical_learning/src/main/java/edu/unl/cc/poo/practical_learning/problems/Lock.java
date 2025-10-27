@@ -3,7 +3,7 @@ package edu.unl.cc.poo.practical_learning.problems;
 
 /**
  *
- * @author Xander
+ * @author Xander(Rodorfo Alexander Gallo Guarniso).
  */
 public class Lock {
 

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Franz
+ * @author Franz Ismael Ludeña Arevalo
  */
 public class AccountExecute {
 

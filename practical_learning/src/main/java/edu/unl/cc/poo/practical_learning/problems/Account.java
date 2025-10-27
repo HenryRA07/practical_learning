@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Franz
+ * @author Franz Ismael Ludeña Arevalo
  */
 public class Account {
     private String name;

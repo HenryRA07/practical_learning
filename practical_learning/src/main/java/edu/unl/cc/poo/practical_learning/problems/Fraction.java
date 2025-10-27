@@ -4,7 +4,7 @@ import javax.print.attribute.standard.MediaSize;
 
 /**
  *
- * @author Usuario iTC
+ * @author Usuario iTC(Francisco Antonio Chamba Diaz).
  */
 public class Fraction {
 

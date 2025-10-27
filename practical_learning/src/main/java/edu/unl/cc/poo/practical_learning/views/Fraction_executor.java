@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 
 /**
  *
- * @author Usuario iTC
+ * @author Usuario iTC(Francisco Antonio Chamba Diaz).
  */
 public class Fraction_executor {
 

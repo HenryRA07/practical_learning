@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Xander
+ * @author Xander(Rodorfo Alexander Gallo Guarniso).
  */
 public class LockExecute {
 
@@ -20,14 +20,14 @@ public class LockExecute {
             String input = sc.nextLine();
 
             if (!input.matches("\\d{4}")) {
-                System.out.println("!PIN INVÁLIDO! \nEl pin debe tener 4 dígitos");
+                System.out.println("!PIN INVALIDO! \nEl pin debe tener 4 dígitos");
                 continue;
             }
             try {
                 Integer newPin = Integer.parseInt(input);
                 configured = myLock.configurePin(newPin);
                 if (configured) {
-                    System.out.printf("Pin configur ado exitosamente. \n");
+                    System.out.printf("Pin configurado exitosamente. \n");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Error al procesar el pin.");
@@ -40,7 +40,7 @@ public class LockExecute {
             String attemptStr = sc.nextLine();
 
             if (!attemptStr.matches("\\d{4}")) {
-                System.out.println("Pin inválido\nEl pin debe tener 4 dígitos.");
+                System.out.println("Pin invalido\nEl pin debe tener 4 digitos.");
                 continue;
             }
             try {

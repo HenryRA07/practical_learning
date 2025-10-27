@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author HenryDev (Jeam Henry Romero Aguilar)
+ * @author HenryDev (Jeam Henry Romero Aguilar).
  */
 public class QuadraticExecute {
 

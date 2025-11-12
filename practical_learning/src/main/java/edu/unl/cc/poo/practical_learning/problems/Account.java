@@ -74,5 +74,9 @@ public class Account {
     public void setNumberAccount(String numberAccount) {
         this.numberAccount = numberAccount;
     }
+
+    public ArrayList<String> getMovimiento() {
+        return movimiento;
+    }
     
 }

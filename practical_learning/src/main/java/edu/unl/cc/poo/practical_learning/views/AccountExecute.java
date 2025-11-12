@@ -13,7 +13,9 @@ import java.util.Scanner;
  * @author Franz Ismael Ludeña Arevalo
  */
 public class AccountExecute {
-
+    public static void mostrar (Account cuenta){
+        cuenta.getMovimiento().forEach(movimiento->System.out.println(movimiento));
+    }
     public static Account buscarCuenta(ArrayList<Account> cuenta, String numero) {
         for (Account c : cuenta) {
             if (c.getNumberAccount().equals(numero)) {
